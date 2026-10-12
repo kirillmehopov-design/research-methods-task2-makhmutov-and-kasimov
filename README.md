@@ -80,7 +80,8 @@ Outputs are saved in `outputs/` when run locally. This directory is excluded fro
 │   ├── __init__.py
 │   └── benchmark.py
 ├── tests/
-│   └── test_benchmark.py
+│   ├── test_benchmark.py
+│   └── test_edge_cases.py
 ├── data/
 │   └── sample/
 │       ├── trials.csv
@@ -88,7 +89,8 @@ Outputs are saved in `outputs/` when run locally. This directory is excluded fro
 │       └── reviews.csv
 ├── docs/
 │   ├── Methodology_Passport.md
-│   └── Experiment_Protocol.md
+│   ├── Experiment_Protocol.md
+│   └── Qualitative_Analysis_Plan.md
 ├── notebooks/  # reserved for future analysis
 ├── .github/workflows/ci.yml
 └── outputs/     # generated, ignored by Git
