@@ -1,0 +1,14 @@
+.git/
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+outputs/
+*.log
+*.pdf
+*.zip
+*.bin
+*.pkl
+*.pt
+*.pth
+.env
