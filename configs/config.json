@@ -1,0 +1,47 @@
+{
+  "study_title": "The Influence of Programmer Experience Level on the Effectiveness of AI Tools in Programming",
+  "authors": [
+    "Makhmutov Damir",
+    "Kasimov Amir"
+  ],
+  "research_design": "mixed-methods, within-participant AI/no-AI crossover with novice/experienced comparison",
+  "experience_groups": {
+    "novice": {
+      "max_programming_years": 2.0,
+      "max_professional_years": 0.5
+    },
+    "experienced": {
+      "min_programming_years": 3.0,
+      "min_professional_years": 1.0
+    }
+  },
+  "ai_assistant": {
+    "tool": "GitHub Copilot",
+    "version": "record for each collection wave",
+    "ide": "VS Code, version recorded in run metadata"
+  },
+  "input_files": {
+    "trials": "data/sample/trials.csv",
+    "reviews": "data/sample/reviews.csv",
+    "survey": "data/sample/survey.csv"
+  },
+  "output_dir": "outputs",
+  "metrics": {
+    "primary": "between_group_difference_in_mean_within_participant_time_reduction_pct",
+    "secondary": [
+      "unit_test_pass_rate",
+      "static_analysis_defects",
+      "errors_detected",
+      "errors_fixed",
+      "review_seconds",
+      "observed_prompt_count",
+      "verification_actions"
+    ],
+    "guardrails": {
+      "max_unit_test_pass_rate_drop_fraction": 0.05,
+      "max_critical_defects_in_ai_condition": 0
+    }
+  },
+  "sample_is_synthetic": true,
+  "minimum_paired_participants_for_real_analysis": 30
+}
