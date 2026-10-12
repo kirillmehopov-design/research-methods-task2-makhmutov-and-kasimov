@@ -1,0 +1,5 @@
+participant_id,experience_group,seeded_defects_total,defects_detected,defects_correctly_fixed,review_seconds
+P001,novice,5,3,2,510
+P002,novice,5,4,2,600
+P003,experienced,5,5,5,330
+P004,experienced,5,5,4,300
