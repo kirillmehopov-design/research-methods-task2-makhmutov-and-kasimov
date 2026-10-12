@@ -1,0 +1,16 @@
+name: Research pipeline smoke test
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Build pinned Python image and run unit tests
+        run: docker build -t ai-experience-benchmark .
+      - name: Run synthetic smoke test
+        run: docker run --rm ai-experience-benchmark
