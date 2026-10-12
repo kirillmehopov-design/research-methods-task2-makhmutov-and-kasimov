@@ -1,0 +1,5 @@
+participant_id,experience_group,ai_uses_per_week,primary_ai_use
+P001,novice,6,code_generation
+P002,novice,4,explanation
+P003,experienced,8,debugging
+P004,experienced,5,code_review
