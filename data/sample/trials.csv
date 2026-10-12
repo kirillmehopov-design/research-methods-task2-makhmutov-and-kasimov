@@ -1,0 +1,9 @@
+participant_id,experience_group,condition,task_id,completion_seconds,tests_passed,tests_total,static_analysis_defects,critical_defects,prompt_count,accepted_suggestions,verification_actions
+P001,novice,no_ai,A,900,9,10,3,0,0,0,2
+P001,novice,ai,B,660,9,10,2,0,7,4,5
+P002,novice,ai,A,540,8,10,3,0,10,6,3
+P002,novice,no_ai,B,780,9,10,2,0,0,0,2
+P003,experienced,no_ai,A,540,10,10,1,0,0,0,4
+P003,experienced,ai,B,480,10,10,1,0,3,2,6
+P004,experienced,ai,A,450,10,10,0,0,4,3,7
+P004,experienced,no_ai,B,510,10,10,1,0,0,0,5
