@@ -1,0 +1,2 @@
+# Runtime dependency list: standard-library only.
+# Python interpreter pinned by Dockerfile (3.12.12 + image digest).
