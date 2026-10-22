@@ -1,0 +1,17 @@
+{
+  "study_title": "Copilot Interaction Mode and Productivity Across Programmer Experience Levels",
+  "dataset_scope": "test sample only; not the full research analysis",
+  "authors": [
+    "Makhmutov Damir",
+    "Kasimov Amir"
+  ],
+  "input_files": {
+    "expert": "data/sample/PRODa-expert.csv",
+    "novice": "data/sample/PRODa-novice.csv"
+  },
+  "provenance_file": "data/sample/provenance.json",
+  "output_dir": "outputs/sample",
+  "bootstrap_repetitions": 10000,
+  "random_seed": 42,
+  "max_completion_drop_pp": 5
+}
