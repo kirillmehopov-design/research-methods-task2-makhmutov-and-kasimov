@@ -1,0 +1,14 @@
+{
+  "source": "../raw/provenance.json",
+  "note": "Eight real source observations, two complete pairs per experience group. For testing only.",
+  "files": [
+    {
+      "file": "PRODa-expert.csv",
+      "sha256": "c63de1d6e421f18cd40869f26d583b14044831175ba2e510ddf9f7cb41a2d9e9"
+    },
+    {
+      "file": "PRODa-novice.csv",
+      "sha256": "6e0628d1af5d2206fe3a9c504b51ddd181f10457dbee6247d19a35ed7c88ae35"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+User ID,Study group,Session,Completeness,Time(min),PRODa
+unimol007,A,SUGG enabled - Task A,50,65,"0,4615384615"
+unimol007,A,SUGG disabled - Task B,15,60,"0,15"
+unimol008,B,SUGG enabled - Task B,100,65,"0,9230769231"
+unimol008,B,SUGG disabled - Task A,0,60,0

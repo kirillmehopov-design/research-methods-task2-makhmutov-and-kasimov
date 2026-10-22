@@ -1,0 +1,3 @@
+* text=auto
+data/raw/*.csv -text
+data/sample/*.csv -text

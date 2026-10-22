@@ -1,0 +1,29 @@
+{
+  "title": "How do Copilot Suggestions Impact Developers' Frustration and Productivity?",
+  "authors": [
+    "Emanuela Guglielmi",
+    "Venera Arnaoudova",
+    "Gabriele Bavota",
+    "Rocco Oliveto",
+    "Simone Scalabrino"
+  ],
+  "paper_url": "https://doi.org/10.1007/s10664-026-10965-6",
+  "dataset_url": "https://figshare.com/s/2f26b8ee294a3a87c908",
+  "download_url": "https://ndownloader.figshare.com/files/67450506?private_link=2f26b8ee294a3a87c908",
+  "retrieved_date": "2026-11-04",
+  "license": "CC BY 4.0",
+  "archive_sha256": "19ece28d7736ede19257cbff98605431b9432de372fac8c659a324c0c91d4e96",
+  "files": [
+    {
+      "file": "PRODa-expert.csv",
+      "archive_member": "replication-package/RQ2-PRODa/PRODa-expert.csv",
+      "sha256": "7cf3b42da111dc20904c05f057791906de34bee8e0fe9e625410dd78f0e2e281"
+    },
+    {
+      "file": "PRODa-novice.csv",
+      "archive_member": "replication-package/RQ2-PRODa/PRODa-novice.csv",
+      "sha256": "efba289b4e6d31eb8d5f43ab1ac8bed36257a259b8ef4cc4a20c88698a6a57c8"
+    }
+  ],
+  "note": "Original CSV bytes preserved. These observations were collected by the source study, not by the student authors."
+}
