@@ -6,8 +6,9 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
 WORKDIR /app
 COPY configs/ ./configs/
-COPY data/sample/ ./data/sample/
+COPY data/ ./data/
 COPY src/ ./src/
 COPY tests/ ./tests/
+ENV PYTHONPATH=/app
 RUN python -m unittest discover -s tests -v
 CMD ["python", "src/benchmark.py", "--config", "configs/config.json"]

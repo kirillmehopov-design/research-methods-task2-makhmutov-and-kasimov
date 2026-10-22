@@ -1,4 +1,4 @@
-name: Research pipeline smoke test
+name: Copilot study checks
 on:
   push:
   pull_request:
@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Check out source
         uses: actions/checkout@v4
-      - name: Build pinned Python image and run unit tests
-        run: docker build -t ai-experience-benchmark .
-      - name: Run synthetic smoke test
-        run: docker run --rm ai-experience-benchmark
+      - name: Build image and run tests
+        run: docker build -t copilot-mode-study .
+      - name: Analyze published data
+        run: docker run --rm copilot-mode-study

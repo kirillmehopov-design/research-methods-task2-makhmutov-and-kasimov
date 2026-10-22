@@ -1,0 +1,26 @@
+# Data
+
+The source is the replication package for *How do Copilot Suggestions Impact Developers' Frustration and Productivity?* by Emanuela Guglielmi, Venera Arnaoudova, Gabriele Bavota, Rocco Oliveto and Simone Scalabrino.
+
+- Paper: https://doi.org/10.1007/s10664-026-10965-6
+- Package: https://figshare.com/s/2f26b8ee294a3a87c908
+- Figshare file ID: 67450506
+- Downloaded: 4 November 2026
+- Data license shown on the package page: CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
+
+We include only the two small productivity CSV files, copied without changing their bytes from `replication-package/RQ2-PRODa/`. Hashes and the archive checksum are recorded in `raw/provenance.json`. We did not collect these observations. The full archive, physiological signals and unrelated analyses are not redistributed here.
+
+The included tables cover 16 experts and 17 novices, with two sessions each. According to the paper, 35 people were recruited and two yielded unusable data; the provided productivity tables already represent the 33 analyzed participants. We apply no further participant exclusions.
+
+| Source column | Meaning |
+| --- | --- |
+| User ID | Published participant identifier |
+| Study group | Assignment sequence A/B/C/D, not experience group |
+| Session | Automatic suggestions enabled/disabled and task A/B |
+| Completeness | Percentage of task requirements completed |
+| Time (min) / Time(min) | Recorded session time in minutes |
+| PRODa | Completed task fraction per hour |
+
+Experience labels come from the expert/novice file. Disabled automatic suggestions means manual Copilot invocation, not absence of AI. Decimal commas and original line endings are handled by the parser.
+
+`sample/` contains two participants per experience group, retaining both sessions (eight rows). These are real source records, not synthetic observations. Sample hashes have their own provenance file. Use the full files for research analysis.

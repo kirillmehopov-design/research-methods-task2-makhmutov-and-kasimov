@@ -1,53 +1,64 @@
-# Task 2 — Methodology Passport Card
+# Methodology Passport
 
-**Project title:** The Influence of Programmer Experience Level on the Effectiveness of AI Tools in Programming  
-**Authors:** Makhmutov Damir; Kasimov Amir  
-**GitHub repository:** https://github.com/kirillmehopov-design/research-methods-task2-makhmutov-and-kasimov
+**Title:** Copilot Interaction Mode and Productivity Across Programmer Experience Levels
+**Authors:** Makhmutov Damir and Kasimov Amir
+**Repository:** https://github.com/kirillmehopov-design/research-methods-task2-makhmutov-and-kasimov
 
-## 1. Research type
+## Research type
 
-**Mixed-methods, with a quantitative experimental core.** A brief questionnaire and analysis of interaction patterns describe how programmers use AI (RQ1). A controlled, counterbalanced within-participant comparison of matched programming tasks with GitHub Copilot versus without AI produces numeric performance measures (RQ2). A standardized review of the same AI-generated defective code measures verification ability (RQ3). Qualitative descriptions of AI-use purpose supplement logged counts; sample outputs are not research findings.
+Quantitative secondary analysis of a published quasi-experiment. We compare paired outcomes under automatic and manually requested Copilot suggestions and examine differences between experience groups. We use the authors' existing data rather than conduct a new participant experiment.
 
-## 2. Hypotheses
+## Object, subject and aim
 
-**RQ1 — Patterns of AI-tool use**  
-- **H0_1:** Novice and experienced programmers do not differ significantly in frequency, purposes, prompting, suggestion acceptance, or verification patterns of AI use.
-- **H1_1:** They differ significantly in at least one of these AI-use patterns.
+The object is AI-assisted programming. The subject is the relationship between Copilot interaction mode, programmer experience and task productivity. Our aim is to estimate mode-related productivity changes within each group and compare those changes between groups using reproducible calculations.
 
-**RQ2 — Experience as a moderator of AI assistance**  
-- **H0_2:** The effect of AI assistance on task completion time, functional correctness, and code quality does not differ by programmer experience group.
-- **H1_2:** The benefit or cost of AI assistance on at least one of these outcomes differs by programmer experience group.
+## Questions and hypotheses
 
-**RQ3 — Review of AI-generated code**  
-- **H0_3:** Novice and experienced programmers do not differ significantly in detection and correct repair of known defects in AI-generated code.
-- **H1_3:** Experienced programmers detect and correctly repair a greater proportion of seeded defects and/or complete review more efficiently than novices.
+Let P be completed task fraction per hour and D = P_automatic - P_manual for each participant.
 
-**Interpretation constraint:** experience level is observed rather than randomly assigned; causal claims about experience itself are not warranted. AI/no-AI task order is counterbalanced; the analysis examines moderation and group associations.
+| Question | Null hypothesis | Alternative hypothesis |
+| --- | --- | --- |
+| RQ1: How does mode affect novices' productivity? | H01: Mean D among novices is zero. | H11: Mean D among novices is not zero. |
+| RQ2: How does mode affect experts' productivity? | H02: Mean D among experts is zero. | H12: Mean D among experts is not zero. |
+| RQ3: Does the mode-related change differ by experience? | H03: Mean D among experts equals mean D among novices. | H13: The two means differ. |
 
-## 3. Variable matrix
+RQ3 is primary. These are two-sided replication hypotheses. Data and published findings were available before this plan, so we do not claim preregistration. A difference in within-group significance alone is not evidence of a between-group difference.
 
-| RQ | Independent variables | Dependent variables (measurement) | Controlled / confounding variables |
-|---|---|---|---|
-| RQ1 | Experience group: novice/experienced | Uses of AI per week; purposes; prompt count; accepted suggestions; verification actions | AI access, language, task category, questionnaire interval and definitions |
-| RQ2 | Experience group; AI condition: GitHub Copilot vs no AI | Completion time (seconds); unit-test pass rate (0–1); static-analysis defect count; critical-defect count | Task difficulty, matched A/B assignments, tool and IDE version, language, hardware class, test suites, time limit, counterbalanced order |
-| RQ3 | Experience group | Defects found (count and rate), correct fixes (count and rate), code-review time (seconds) | Identical AI-generated sample, seeded defect inventory, IDE, language, instructions, tests, time limit |
+## Variables
 
-**Group definitions (from Task 1):** novice: at most 2 total years of programming and at most 6 months of professional experience. Experienced: at least 3 total years and at least 1 professional year. Exclude the middle experience band for clean groups in this pilot design.
+| Type | Variables and definitions |
+| --- | --- |
+| Factors | Copilot mode: automatic/manual; experience: novice/expert as classified by the source authors |
+| Primary outcome | Expert mean paired productivity change minus novice mean paired change, in task fraction/hour |
+| Additional outcomes | Within-group productivity change; completion (%); time (minutes) |
+| Recorded design factors | Java task A/B and assignment group A/B/C/D, which encode task/mode allocation and order |
+| Fixed source setting | GitHub Copilot, Java maintenance tasks, source-study instructions and scoring procedure |
+| Remaining limitations | Convenience sampling, different participant skills, incomplete tasks and source-study conditions |
 
-## 4. Metrics and baseline
+Source eligibility: novices were computing students with less than three years of programming experience; experts were industry developers with at least three years. We preserve the published group labels. The original Task 1 thresholds are replaced with the source study's definitions.
 
-**Primary metric:** the *between-group difference in mean within-participant percentage reduction in programming task completion time due to AI*. For participant `i`, `benefit_i = 100 × (T_noAI,i − T_AI,i) / T_noAI,i`. Calculate the mean benefit within each group; the primary contrast is `mean_benefit_experienced − mean_benefit_novice` (percentage points). Its direction and confidence interval will be examined when real data are available. The included script provides descriptive summaries only.
+## Metrics and baseline
 
-**Guardrail metrics:** (1) AI assistance must not lower a group's average unit-test pass rate by more than **0.05** on the 0–1 scale, i.e., five percentage points, relative to the corresponding no-AI baseline; (2) AI-assisted outputs must have **zero critical defects**, defined using the predetermined defect-severity rubric. Both criteria are proposed decision thresholds, not observed outcomes.
+P = (completion percent / 100) / (minutes / 60). A value of 0.5 means half a task per hour. Manual invocation is the baseline; it still provides Copilot access. Neither condition is an AI-free control.
 
-**Secondary metrics:** static-analysis defects, functional pass rate, use frequency, prompt count, verification events, fraction of seeded review errors detected, fraction correctly fixed, and review time. Report outcomes separately, not as a single unvalidated quality score.
+Primary metric: mean(D_expert) - mean(D_novice). Positive values mean a larger automatic-mode benefit for experts. Secondary metrics show productivity, completion and time separately. The completion guardrail flags an average automatic-minus-manual drop exceeding five percentage points within either group. This threshold is a student-defined reporting rule, not an established quality standard. Source data do not support a critical-security-defect guardrail.
 
-**Baseline (fair control):** each participant solves one matched task **without any AI assistant**, in the same environment and time limit. In the other condition the same person solves the alternative matched task with one fixed GitHub Copilot version; task assignments and condition order are counterbalanced to limit learning and task effects. RQ3 directly compares novice and experienced groups on *identical seeded-defect review material*.
+## Data and analysis
 
-## 5. Execution and deliverables
+The published productivity tables contain 66 task sessions from 33 participants (16 experts, 17 novices). Each participant has one session in each mode and two different tasks. Original CSV files, source links and hashes are retained. Eight real rows form the test sample.
 
-**Pipeline:** Python 3.12.12 in a digest-pinned Docker image; standard library only; `configs/config.json` holds paths, conditions and thresholds; `src/benchmark.py` validates sample inputs and writes `outputs/benchmark_results.json` plus `outputs/benchmark.log`. Eight synthetic trial observations (four paired participants) in `data/sample/trials.csv` exercise the end-to-end pipeline; separate review and survey micro-samples demonstrate RQ1/RQ3. Unit tests validate pairing and input errors.
+The current pipeline validates the data, computes participant pairs, summaries, mean changes and percentile-bootstrap 95% intervals. Resampling uses whole participant pairs within each experience group. Task 3 will add adjustment/sensitivity checks for task and order, leave-one-participant-out checks and the final notebook and figures. Repeated sessions are not treated as independent participants.
 
-**Reproducibility:** `docker build -t ai-experience-benchmark .` and `docker run --rm ai-experience-benchmark`. A successful synthetic smoke test proves the *pipeline is runnable*, not that the research hypotheses are supported. The environment has no external pip dependencies; no API keys, protected datasets, human identities or model weights are committed.
+## Research tasks
 
-**Data integrity:** actual research will require participant consent, matched-task pilot evaluation, consistent test suites, recorded GitHub Copilot version, predefined statistical tests, and anonymized storage. Synthetic fixtures are not admissible as experimental findings.
+1. Review literature on experience and AI-assisted programming.
+2. Document and validate the published data and mode definitions.
+3. Recalculate productivity and paired differences.
+4. Estimate uncertainty and examine task/order sensitivity.
+5. Present results, limitations and practical implications in the report and defense.
+
+## Reproducibility and ethics
+
+Python 3.12.12 and a digest-pinned Docker image provide the runtime. The analysis needs no external Python packages or AI account. The code, configuration and small source tables allow offline execution after setup. The original researchers collected the observations. We use published participant IDs and do not attempt identification. Cite the source paper and CC BY 4.0 data package.
+
+Source: Guglielmi et al., *How do Copilot Suggestions Impact Developers' Frustration and Productivity?*, https://doi.org/10.1007/s10664-026-10965-6. Data: https://figshare.com/s/2f26b8ee294a3a87c908.
