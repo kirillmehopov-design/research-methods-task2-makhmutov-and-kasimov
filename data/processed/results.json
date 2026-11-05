@@ -1,0 +1,451 @@
+{
+  "analysis_type": "secondary exploratory replication",
+  "dataset_scope": "full published productivity tables",
+  "participants": 33,
+  "observations": 66,
+  "baseline": "manual Copilot invocation",
+  "units": {
+    "productivity": "completed task fraction/hour",
+    "completion": "percent",
+    "time": "minutes"
+  },
+  "by_group": {
+    "novice": {
+      "participants": 17,
+      "conditions": {
+        "manual": {
+          "productivity_per_hour": {
+            "mean": 0.1817280758457229,
+            "median": 0.15,
+            "p95": 0.48,
+            "n": 17,
+            "sd": 0.1529570235956864,
+            "p25": 0.125,
+            "p75": 0.2
+          },
+          "completion_pct": {
+            "mean": 18.823529411764707,
+            "median": 15,
+            "p95": 51.99999999999999,
+            "n": 17,
+            "sd": 16.773249886790154,
+            "p25": 12.5,
+            "p75": 20
+          },
+          "time_minutes": {
+            "mean": 60.588235294117645,
+            "median": 60,
+            "p95": 66,
+            "n": 17,
+            "sd": 4.963099126672414,
+            "p25": 60,
+            "p75": 60
+          }
+        },
+        "automatic": {
+          "productivity_per_hour": {
+            "mean": 0.4718050583641841,
+            "median": 0.46153846153846156,
+            "p95": 0.9384615384615385,
+            "n": 17,
+            "sd": 0.26213667106584904,
+            "p25": 0.3333333333333333,
+            "p75": 0.5
+          },
+          "completion_pct": {
+            "mean": 51.029411764705884,
+            "median": 50,
+            "p95": 100,
+            "n": 17,
+            "sd": 25.830862468805663,
+            "p25": 37.5,
+            "p75": 62.5
+          },
+          "time_minutes": {
+            "mean": 67.23529411764706,
+            "median": 60,
+            "p95": 86,
+            "n": 17,
+            "sd": 10.425506053453148,
+            "p25": 60,
+            "p75": 70
+          }
+        }
+      },
+      "paired_changes": {
+        "productivity_per_hour_change": {
+          "mean": 0.29007698251846126,
+          "ci95": [
+            0.13384533237325894,
+            0.4559954771412735
+          ],
+          "n": 17,
+          "sd": 0.3486535961100115,
+          "median": 0.25,
+          "p25": 0.00784313725490196,
+          "p75": 0.375,
+          "p95": 0.8846153846153846
+        },
+        "completion_pct_change": {
+          "mean": 32.205882352941174,
+          "ci95": [
+            17.058823529411764,
+            48.23529411764706
+          ],
+          "n": 17,
+          "sd": 33.944835221802066,
+          "median": 27.5,
+          "p25": 10,
+          "p75": 37.5,
+          "p95": 89.99999999999999
+        },
+        "time_minutes_change": {
+          "mean": 6.647058823529412,
+          "ci95": [
+            1.1764705882352942,
+            12.941176470588236
+          ],
+          "n": 17,
+          "sd": 12.569512602277923,
+          "median": 0,
+          "p25": 0,
+          "p75": 10,
+          "p95": 27.99999999999999
+        }
+      },
+      "completion_guardrail_met": true
+    },
+    "expert": {
+      "participants": 16,
+      "conditions": {
+        "manual": {
+          "productivity_per_hour": {
+            "mean": 0.7887173797901824,
+            "median": 0.75,
+            "p95": 1.1372093023255814,
+            "n": 16,
+            "sd": 0.21309981074978093,
+            "p25": 0.613235294117647,
+            "p75": 0.88125
+          },
+          "completion_pct": {
+            "mean": 78.75,
+            "median": 77.5,
+            "p95": 100,
+            "n": 16,
+            "sd": 15.05545305418162,
+            "p25": 71.875,
+            "p75": 88.125
+          },
+          "time_minutes": {
+            "mean": 61.75,
+            "median": 60,
+            "p95": 81.25,
+            "n": 16,
+            "sd": 11,
+            "p25": 58.75,
+            "p75": 62.5
+          }
+        },
+        "automatic": {
+          "productivity_per_hour": {
+            "mean": 0.5127859379096866,
+            "median": 0.40972461273666094,
+            "p95": 1.0083333333333333,
+            "n": 16,
+            "sd": 0.3379640796453587,
+            "p25": 0.2686298076923077,
+            "p75": 0.7625
+          },
+          "completion_pct": {
+            "mean": 55.78125,
+            "median": 52.5,
+            "p95": 92.5,
+            "n": 16,
+            "sd": 30.079322216433003,
+            "p25": 34.375,
+            "p75": 82.5
+          },
+          "time_minutes": {
+            "mean": 69.4375,
+            "median": 66.5,
+            "p95": 90,
+            "n": 16,
+            "sd": 12.296171490888264,
+            "p25": 60,
+            "p75": 80
+          }
+        }
+      },
+      "paired_changes": {
+        "productivity_per_hour_change": {
+          "mean": -0.2759314418804959,
+          "ci95": [
+            -0.4953950151265838,
+            -0.04891962986978116
+          ],
+          "n": 16,
+          "sd": 0.47381269615023414,
+          "median": -0.3182773109243697,
+          "p25": -0.5935897435897435,
+          "p75": 0.012500000000000011,
+          "p95": 0.4458333333333333
+        },
+        "completion_pct_change": {
+          "mean": -22.96875,
+          "ci95": [
+            -41.09765625,
+            -4.53125
+          ],
+          "n": 16,
+          "sd": 38.48396581694771,
+          "median": -26.25,
+          "p25": -50,
+          "p75": 6.875,
+          "p95": 30.625
+        },
+        "time_minutes_change": {
+          "mean": 7.6875,
+          "ci95": [
+            1,
+            14.625
+          ],
+          "n": 16,
+          "sd": 14.425527142303443,
+          "median": 5,
+          "p25": 0,
+          "p75": 12.5,
+          "p95": 31.75
+        }
+      },
+      "completion_guardrail_met": false
+    }
+  },
+  "primary_contrast": {
+    "definition": "expert mean paired change minus novice mean paired change",
+    "estimate": -0.5660084243989572,
+    "ci95": [
+      -0.8386704833676392,
+      -0.2839248256032315
+    ]
+  },
+  "bootstrap": {
+    "repetitions": 10000,
+    "seed": 42,
+    "unit": "participant pair, resampled within experience group"
+  },
+  "limitations": [
+    "Unadjusted primary results. Task allocation is standardized in a sensitivity check; the CSV does not verify session order for an order-adjusted analysis.",
+    "Experience was not randomly assigned.",
+    "Manual mode still uses Copilot.",
+    "Completion is not a full code quality or security assessment.",
+    "Bootstrap intervals describe sampling uncertainty within this convenience sample."
+  ],
+  "leave_one_out": {
+    "full_estimate": -0.5660084243989572,
+    "estimates": [
+      {
+        "participant_id": "unimol002",
+        "experience_group": "expert",
+        "estimate": -0.5299594094132124
+      },
+      {
+        "participant_id": "unimol003",
+        "experience_group": "expert",
+        "estimate": -0.5567848062386092
+      },
+      {
+        "participant_id": "unimol004",
+        "experience_group": "expert",
+        "estimate": -0.6232927427465458
+      },
+      {
+        "participant_id": "unimol005",
+        "experience_group": "expert",
+        "estimate": -0.5616097362105981
+      },
+      {
+        "participant_id": "unimol006",
+        "experience_group": "expert",
+        "estimate": -0.5287352492064941
+      },
+      {
+        "participant_id": "unimol007",
+        "experience_group": "novice",
+        "estimate": -0.5646670819602071
+      },
+      {
+        "participant_id": "unimol008",
+        "experience_group": "novice",
+        "estimate": -0.5264459281140532
+      },
+      {
+        "participant_id": "unimol009",
+        "experience_group": "novice",
+        "estimate": -0.5294507358063609
+      },
+      {
+        "participant_id": "unimol010",
+        "experience_group": "expert",
+        "estimate": -0.5877371871909902
+      },
+      {
+        "participant_id": "unimol011",
+        "experience_group": "expert",
+        "estimate": -0.6110705205243235
+      },
+      {
+        "participant_id": "unimol012",
+        "experience_group": "novice",
+        "estimate": -0.5973593896525148
+      },
+      {
+        "participant_id": "unimol013",
+        "experience_group": "expert",
+        "estimate": -0.56748077693458
+      },
+      {
+        "participant_id": "unimol014",
+        "experience_group": "expert",
+        "estimate": -0.5832273832694216
+      },
+      {
+        "participant_id": "unimol015",
+        "experience_group": "novice",
+        "estimate": -0.5836480397279296
+      },
+      {
+        "participant_id": "unimol016",
+        "experience_group": "expert",
+        "estimate": -0.5549861831749259
+      },
+      {
+        "participant_id": "unimol017",
+        "experience_group": "expert",
+        "estimate": -0.5497884692422723
+      },
+      {
+        "participant_id": "unimol018",
+        "experience_group": "novice",
+        "estimate": -0.5853430550834694
+      },
+      {
+        "participant_id": "unimol019",
+        "experience_group": "novice",
+        "estimate": -0.585700735806361
+      },
+      {
+        "participant_id": "unimol020",
+        "experience_group": "novice",
+        "estimate": -0.562263235806361
+      },
+      {
+        "participant_id": "unimol021",
+        "experience_group": "novice",
+        "estimate": -0.5685132358063609
+      },
+      {
+        "participant_id": "unimol022",
+        "experience_group": "novice",
+        "estimate": -0.538825735806361
+      },
+      {
+        "participant_id": "unimol023",
+        "experience_group": "novice",
+        "estimate": -0.5979202870884122
+      },
+      {
+        "participant_id": "unimol024",
+        "experience_group": "expert",
+        "estimate": -0.606455135908939
+      },
+      {
+        "participant_id": "unimol025",
+        "experience_group": "novice",
+        "estimate": -0.5705221643777896
+      },
+      {
+        "participant_id": "unimol026",
+        "experience_group": "novice",
+        "estimate": -0.5636025215206466
+      },
+      {
+        "participant_id": "unimol028",
+        "experience_group": "novice",
+        "estimate": -0.5688738127294379
+      },
+      {
+        "participant_id": "unimol029",
+        "experience_group": "novice",
+        "estimate": -0.577918283883284
+      },
+      {
+        "participant_id": "unimol030",
+        "experience_group": "expert",
+        "estimate": -0.5647609967147997
+      },
+      {
+        "participant_id": "unimol031",
+        "experience_group": "expert",
+        "estimate": -0.5844038538576568
+      },
+      {
+        "participant_id": "unimol034",
+        "experience_group": "novice",
+        "estimate": -0.540388235806361
+      },
+      {
+        "participant_id": "unimol035",
+        "experience_group": "novice",
+        "estimate": -0.5607007358063609
+      },
+      {
+        "participant_id": "unimol036",
+        "experience_group": "expert",
+        "estimate": -0.5200099144637175
+      },
+      {
+        "participant_id": "unimol037",
+        "experience_group": "expert",
+        "estimate": -0.5258324252862283
+      }
+    ],
+    "min": -0.6232927427465458,
+    "max": -0.5200099144637175,
+    "sign_changed": false,
+    "note": "Sensitivity range, not a confidence interval."
+  },
+  "task_allocation_sensitivity": {
+    "method": "Equal weights for automatic-task A and B in each experience group",
+    "by_group": {
+      "novice": {
+        "by_automatic_task": {
+          "A": {
+            "n": 9,
+            "mean_paired_change": 0.10981119226601153
+          },
+          "B": {
+            "n": 8,
+            "mean_paired_change": 0.49287599655246717
+          }
+        },
+        "equal_task_weight_mean": 0.30134359440923936
+      },
+      "expert": {
+        "by_automatic_task": {
+          "A": {
+            "n": 8,
+            "mean_paired_change": -0.6132259751050363
+          },
+          "B": {
+            "n": 8,
+            "mean_paired_change": 0.06136309134404457
+          }
+        },
+        "equal_task_weight_mean": -0.27593144188049584
+      }
+    },
+    "primary_contrast": -0.5772750362897352,
+    "limitation": "Task-allocation sensitivity only; session order and carryover are not adjusted."
+  }
+}
