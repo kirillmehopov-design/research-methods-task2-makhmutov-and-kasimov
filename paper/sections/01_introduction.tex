@@ -1,0 +1,48 @@
+\section{Introduction}
+\label{sec:introduction}
+Code-generating assistants introduce an interaction decision alongside the
+technical task of producing useful code: assistance can appear automatically or
+be requested explicitly. Understanding this distinction requires examining how
+programmers use suggestions, rather than assuming that access to a model alone
+determines productivity. Barke et al.\ describe interaction patterns in which
+programmers use Copilot for both acceleration and exploration~\cite{barke2023grounded}.
+Ziegler et al.\ connect perceived productivity with suggestion acceptance,
+illustrating that usage measures and productivity judgments need careful
+interpretation~\cite{ziegler2022productivity}.
+
+Our starting point is the published study of Copilot interaction modes by
+Guglielmi et al.~\cite{guglielmi2026copilot}. We do not claim that the relationship
+between experience and suggestion mode is an unexplored topic. Instead, the
+question for this replication is whether a transparent participant-level
+analysis of the released productivity tables supports an interpretable comparison
+of mode-related changes across experience groups. A difference between two
+within-group significance decisions would not itself establish a difference
+between the groups. We therefore estimate that contrast directly.
+
+We use automatic suggestions as the comparison condition and manual Copilot
+invocation as the baseline. This is a comparison of interaction modes, not AI
+assistance versus unaided programming. Our exploratory approach combines source
+validation, paired productivity changes, and uncertainty estimates. It does not
+reproduce every outcome or model in the source study.
+
+\subsection{Contributions and Research Questions}
+\label{sec:questions}
+The contributions of this course project are:
+\begin{itemize}
+  \item a reproducible validation pipeline for the published productivity tables,
+  including checksum verification and independent metric recalculation;
+  \item explicit participant-level estimands for within-group changes and the
+  expert-minus-novice contrast, retaining the paired design;
+  \item joint reporting of productivity, completion, and time, with documented
+  limits on what these measurements can establish.
+\end{itemize}
+We ask three research questions:
+\begin{enumerate}
+  \item[RQ1:] What is the mean paired productivity change from manual to automatic
+  suggestions among novices?
+  \item[RQ2:] What is the corresponding change among experts?
+  \item[RQ3:] How does the mean paired change differ between experts and novices?
+\end{enumerate}
+RQ3 is primary; RQ1 and RQ2 provide context. Section~\ref{sec:methodology}
+defines the dataset and estimands. Section~\ref{sec:results} identifies the
+remaining results integration, and Section~\ref{sec:limitations} discusses validity.

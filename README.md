@@ -118,6 +118,10 @@ Parameters and source paths are in `configs/config.json`. For an eight-row demon
 
 ## Citation and license
 
+The laboratory 9 IEEE paper draft for Task 4 is in [paper/](paper/README.md).
+It contains the Introduction, implemented Methodology, and a starter BibTeX
+bibliography. Final Task 3 results and the four-page Task 4 paper are pending.
+
 Cite the source paper and its replication package when using the measurements. Source authors: Emanuela Guglielmi, Venera Arnaoudova, Gabriele Bavota, Rocco Oliveto and Simone Scalabrino. DOI: `10.1007/s10664-026-10965-6`.
 
 For our analysis: Makhmutov, D., & Kasimov, A. (2026). *Copilot Interaction Mode and Productivity Across Programmer Experience Levels*. Research Methods project.

@@ -1,0 +1,42 @@
+\documentclass[conference]{IEEEtran}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+
+\title{Copilot Interaction Mode and Productivity Across Programmer Experience Levels}
+\author{\IEEEauthorblockN{Damir Makhmutov and Amir Kasimov}
+\IEEEauthorblockA{Research Methods Course Project}}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+AI-assisted programming raises questions about when suggestions should be
+presented and whether interaction preferences differ with programmer experience.
+This work describes an exploratory secondary analysis of published GitHub
+Copilot productivity measurements. The dataset contains 66 task sessions from
+33 participants, with one automatic-suggestion session and one manual-invocation
+session per participant. Both conditions provide access to Copilot. We define
+productivity as completed task fraction per hour and compare automatic-minus-manual
+changes within novice and expert groups. Our primary estimand is the difference
+between the groups' mean paired changes. The analysis validates source checksums,
+recalculates productivity, preserves participant pairs, and uses stratified
+participant-level bootstrap intervals. Completion and time are reported separately
+to make the productivity ratio interpretable. This laboratory-stage draft presents
+the introduction and implemented methodology; final results, scientific figures,
+and sensitivity analyses will be integrated after Task 3. It makes no claim of a
+new participant experiment, an AI-free control, or a causal effect of experience.
+\end{abstract}
+\begin{IEEEkeywords}
+GitHub Copilot, programmer experience, productivity, secondary analysis, reproducibility
+\end{IEEEkeywords}
+
+\input{sections/01_introduction}
+\input{sections/02_methodology}
+\input{sections/03_results_discussion}
+\input{sections/04_limitations_conclusion}
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+\end{document}

@@ -1,0 +1,109 @@
+\section{Methodology}
+\label{sec:methodology}
+\subsection{Data and Scope}
+\label{sec:data}
+We analyze the released productivity tables associated with
+Guglielmi et al.~\cite{guglielmi2026copilot}. They contain 16 experts and
+17 novices, each with one session per mode on different Java maintenance tasks.
+We retain the source experience labels and all 66 released observations. The
+source investigators collected the data; we recruit no participants and collect
+no new human outcomes. The replication-package link, attribution, and SHA-256
+checksums are recorded in the repository's data provenance files.
+
+Figure~\ref{fig:pipeline} summarizes our analytical pipeline. Table~\ref{tab:parameters}
+lists its implemented parameters. We verify file hashes, normalize decimal-comma
+numbers and time-column spellings, require finite values and positive times,
+and check completion bounds. We compare recalculated productivity with the
+published value using an absolute tolerance of $10^{-8}$. Each participant must
+have exactly one observation per mode, consistent group metadata, and different
+tasks. Invalid inputs stop processing; they are not silently excluded.
+
+\begin{figure}[t]
+\centering
+\begingroup\small
+\fbox{\begin{minipage}{0.91\columnwidth}
+\centering
+Published CSV tables and provenance\\
+$\downarrow$\\
+Checksum, schema, and participant-pair validation\\
+$\downarrow$\\
+Productivity recalculation and paired changes\\
+$\downarrow$\\
+Group summaries and stratified bootstrap\\
+$\downarrow$\\
+CSV summaries and JSON results
+\end{minipage}}
+\endgroup
+\caption{Implemented secondary-analysis pipeline. Metric calculation occurs
+after validation. These are participant outcomes, not runtime benchmark logs.}
+\label{fig:pipeline}
+\end{figure}
+
+\begin{table}[t]
+\caption{Implemented analysis parameters in \texttt{configs/config.json}.}
+\label{tab:parameters}
+\centering
+\begin{tabular}{@{}ll@{}}
+\toprule
+Parameter & Value \\
+\midrule
+Participants & 33 (17 novice, 16 expert) \\
+Observations & 66 sessions \\
+Bootstrap repetitions & 10,000 \\
+Pseudorandom seed & 42 \\
+Confidence level & 95\% \\
+Completion-drop flag & Greater than 5 percentage points \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Outcomes and Estimands}
+\label{sec:estimands}
+Equation~\ref{eq:productivity} defines productivity $P_{im}$ for participant $i$
+under mode $m$, where $c_{im}$ is completion in percent and $t_{im}$ is time in
+minutes:
+\begin{equation}
+P_{im}=\frac{c_{im}/100}{t_{im}/60}.
+\label{eq:productivity}
+\end{equation}
+The unit is completed task fraction per hour. Incomplete and zero-completion
+sessions remain in the analysis. Session time is not necessarily time to a fully
+correct solution. Completion does not measure security or comprehensive code quality.
+
+Equation~\ref{eq:paired} defines the automatic-minus-manual change, and
+Equation~\ref{eq:contrast} defines the primary expert-minus-novice contrast:
+\begin{equation}
+D_i=P_{i,\mathrm{automatic}}-P_{i,\mathrm{manual}}.
+\label{eq:paired}
+\end{equation}
+\begin{equation}
+\theta=\bar{D}_{E}-\bar{D}_{N},\qquad
+\bar{D}_{g}=\frac{1}{n_g}\sum_{i\in g}D_i.
+\label{eq:contrast}
+\end{equation}
+Here $E$ and $N$ denote expert and novice groups and $n_g$ is their participant
+count. Positive $\theta$ indicates a larger automatic-mode benefit for experts.
+RQ1 and RQ2 concern $\bar{D}_{N}$ and $\bar{D}_{E}$, respectively; RQ3 concerns
+$\theta$. All comparisons are two-sided and exploratory.
+
+We additionally calculate paired completion and time changes. Our student-defined
+completion guardrail flags a group mean change below $-5$ percentage points.
+It is a reporting rule, not a validated quality threshold. No API error rate or
+technical warm-up exclusion is inferred from human session measurements.
+
+\subsection{Uncertainty and Reproducibility}
+\label{sec:uncertainty}
+The implemented analysis reports group--mode means, medians, and 95th
+percentiles. For paired mean changes and $\theta$, it generates 10,000 bootstrap
+samples using seed 42. Sampling occurs separately within experience groups and
+retains each participant's pair. The interval endpoints are the 2.5th and 97.5th
+percentiles of the resulting estimates, with linear interpolation. Sessions are
+not resampled as independent participants.
+
+The pipeline uses the Python standard library. The repository documents local
+Python 3.12 and a Docker runtime pinned to Python 3.12.12. Running
+\texttt{src/benchmark.py} with the full-data configuration generates validated
+observations, paired changes, and JSON summaries. These are unadjusted estimates.
+Task/order adjustment, leave-one-participant-out checks, the executed analysis
+notebook, and final plots remain Task 3 work; they are not presented as completed
+methods in this draft.
