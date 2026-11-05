@@ -1,4 +1,4 @@
-name: Copilot study checks
+name: Task 3 reproducibility
 on:
   push:
   pull_request:
@@ -12,5 +12,21 @@ jobs:
         uses: actions/checkout@v4
       - name: Build image and run tests
         run: docker build -t copilot-mode-study .
-      - name: Analyze published data
-        run: docker run --rm copilot-mode-study
+      - name: Rebuild report, figures, and notebook
+        run: |
+          mkdir -p outputs/ci
+          docker run --name task3 copilot-mode-study
+          docker cp task3:/app/reports outputs/ci/reports
+          docker cp task3:/app/notebooks outputs/ci/notebooks
+          docker cp task3:/app/data/processed outputs/ci/processed
+          docker cp task3:/app/data/raw/test_run.jsonl outputs/ci/test_run.jsonl
+          docker cp task3:/app/data/raw/runtime_metadata.json outputs/ci/runtime_metadata.json
+      - name: Validate generated submission
+        run: |
+          docker commit task3 task3-complete
+          docker run --rm task3-complete python -m src.check_submission
+      - name: Upload reproduced outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: task3-reproduced
+          path: outputs/ci/

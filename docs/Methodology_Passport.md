@@ -47,7 +47,7 @@ Primary metric: mean(D_expert) - mean(D_novice). Positive values mean a larger a
 
 The published productivity tables contain 66 task sessions from 33 participants (16 experts, 17 novices). Each participant has one session in each mode and two different tasks. Original CSV files, source links and hashes are retained. Eight real rows form the test sample.
 
-The current pipeline validates the data, computes participant pairs, summaries, mean changes and percentile-bootstrap 95% intervals. Resampling uses whole participant pairs within each experience group. Task 3 will add adjustment/sensitivity checks for task and order, leave-one-participant-out checks and the final notebook and figures. Repeated sessions are not treated as independent participants.
+The current pipeline validates the data, computes participant pairs, summaries, mean changes and percentile-bootstrap 95% intervals. Resampling uses whole participant pairs within each experience group. Task 3 adds equal-task-weight sensitivity, leave-one-participant-out checks, an executed notebook, and final figures. Order adjustment remains unsupported without verified period labels; task weighting is not an order-adjusted model. Repeated sessions are not treated as independent participants.
 
 ## Research tasks
 
@@ -59,6 +59,6 @@ The current pipeline validates the data, computes participant pairs, summaries, 
 
 ## Reproducibility and ethics
 
-Python 3.12.12 and a digest-pinned Docker image provide the runtime. The analysis needs no external Python packages or AI account. The code, configuration and small source tables allow offline execution after setup. The original researchers collected the observations. We use published participant IDs and do not attempt identification. Cite the source paper and CC BY 4.0 data package.
+Python 3.12.12 and a digest-pinned Docker image provide the runtime. The human statistical calculations use the standard library. Notebook execution and plots use the dependencies pinned in requirements.lock.txt; no AI account is needed. The code, configuration and small source tables allow offline execution after setup. The original researchers collected the observations. We use published participant IDs and do not attempt identification. Cite the source paper and CC BY 4.0 data package.
 
 Source: Guglielmi et al., *How do Copilot Suggestions Impact Developers' Frustration and Productivity?*, https://doi.org/10.1007/s10664-026-10965-6. Data: https://figshare.com/s/2f26b8ee294a3a87c908.

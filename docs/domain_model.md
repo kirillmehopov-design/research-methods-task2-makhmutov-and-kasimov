@@ -17,10 +17,12 @@ C4Component
         Component(pair, "Calculate paired metrics", "src/process_data.py", "Recalculate productivity and automatic minus manual changes")
         Component(stats, "Statistical analysis", "src/benchmark.py + src/task3_analysis.py", "Summary statistics, paired bootstrap, leave-one-out, task sensitivity")
         Component(report, "Report generation", "src/task3_analysis.py", "Write reproducible CSV and JSON outputs")
+        Component(views, "Notebook and figures", "notebooks/01_data_analysis.ipynb + src/visualize.py", "Execute analysis, display outputs, export PDF and PNG figures")
+        Component(runtime, "Separate code benchmark", "src/runtime_benchmark.py", "Time CSV parsing and pair validation; record warm-up, evaluation, and errors")
     }
 
     ContainerDb_Ext(processed, "data/processed", "CSV + JSON", "Validated sessions, pairs, summaries, results")
-    Component_Ext(planned, "Notebook and visualizations (planned)", "Other participant's work", "Read saved results to create plots and the final report")
+    ContainerDb_Ext(timings, "Technical logs", "JSONL + metadata", "Local code timings; not participant outcomes")
 
     Rel(researchers, paper, "Publish study measurements")
     Rel(paper, raw, "Source for checked-in CSV files")
@@ -29,7 +31,10 @@ C4Component
     Rel(pair, stats, "Complete participant pairs")
     Rel(stats, report, "Statistics and sensitivity results")
     Rel(report, processed, "Write saved outputs")
-    Rel(processed, planned, "Read later")
+    Rel(processed, views, "Read results and export figures")
+    Rel(raw, runtime, "Preload and verify source outside timer")
+    Rel(runtime, timings, "Write actual timing attempts outside timer")
+    Rel(timings, views, "Read separately from human outcomes")
 ```
 
 ## Domain terms
@@ -48,4 +53,6 @@ C4Component
 - **Time change (minutes):** `time_minutes_automatic - time_minutes_manual`.
 - **SD and quantiles:** Sample SD uses `n - 1` (`ddof=1`); p25, median, p75, and p95 use linear interpolation. Bootstrap 95% intervals use 10,000 participant-pair resamples within each experience group, seed 42. The leave-one-out range is a sensitivity check, **not** a confidence interval.
 
-`src/process_data.py` recalculates session productivity and participant paired changes. `src/benchmark.py` calculates the original paired bootstrap and unadjusted summaries. `src/task3_analysis.py` adds sample SD, quantiles, leave-one-out, task-allocation standardization, and the five outputs in `data/processed/`. Notebook figures and narrative reporting are **planned**, not part of this implemented component boundary.
+`src/process_data.py` recalculates session productivity and participant paired changes. `src/benchmark.py` calculates the original paired bootstrap and unadjusted summaries. `src/task3_analysis.py` adds sample SD, quantiles, leave-one-out, task-allocation standardization, and the source-derived outputs in `data/processed/`. `src/visualize.py` exports scientific figures, `src/report.py` writes the Markdown report, and `src/run_task3.py` rebuilds the submission and executes the notebook.
+
+The technical benchmark has its own measurement point: `perf_counter_ns` immediately around parsing preloaded text and validating pairs. File reads, integrity checks, log writes, and summaries are outside that timer. Its JSONL records distinguish warm-up from evaluation and retain failures. These timings are never used as participant productivity observations.

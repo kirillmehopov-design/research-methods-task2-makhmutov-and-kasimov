@@ -6,7 +6,7 @@ Our project studies whether the productivity difference between automatic and ma
 
 Our main metric is the difference between the groups' average paired productivity changes. Productivity combines task completion and session time. Manual Copilot invocation is our baseline. We also report completion and time separately.
 
-For Task 2, we prepared the methodology, source data, validation, configuration, tests and an executable analysis. The program checks the original file hashes, validates all 66 observations and calculates participant-level comparisons with confidence intervals. Task 3 will extend this with the notebook, plots and task/order sensitivity analysis.
+We prepared the methodology, source data, validation, configuration, tests and an executable analysis. The program checks the original file hashes, validates all 66 observations and calculates participant-level comparisons with confidence intervals. Task 3 adds an executed notebook, publication figures, participant sensitivity and equal task weighting. Session-order adjustment is not supported by verified period labels.
 
 ## Questions
 
@@ -24,8 +24,8 @@ For Task 2, we prepared the methodology, source data, validation, configuration,
 
 **What is the guardrail?** We flag an average completion drop exceeding five percentage points within either group. It is our reporting threshold, not a validated safety rule.
 
-**What is new?** We do not claim a first discovery. This is a student replication with transparent calculations, uncertainty estimates and planned task/order and participant sensitivity checks.
+**What is new?** We do not claim a first discovery. This is a student replication with transparent calculations, uncertainty estimates and task-allocation and participant sensitivity checks.
 
 **What does the working program prove?** It proves that we can validate and analyze the published data reproducibly. General recommendations still require interpretation of the design and limitations.
 
-**What about warm-up?** Technical startup warm-up does not apply to these human task sessions. We document this and keep the source observations.
+**What about warm-up?** Technical startup warm-up does not apply to human sessions; all are retained. A separate local parser benchmark has explicit warm-up/evaluation phases and error accounting.

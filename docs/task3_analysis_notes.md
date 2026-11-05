@@ -20,6 +20,6 @@ The [source paper, Section 5.4 and Table 1](https://doi.org/10.1007/s10664-026-1
 
 Therefore we can compare **task allocation**, but cannot estimate a separate session-order or carryover effect from these files. As a limited sensitivity check, we equally weight automatic-task A and B *within each experience group*. The resulting expert-minus-novice contrast is **-0.5773**, versus **-0.5660** unadjusted. This is **not** a full order-adjusted model. Individual task effects, practice effects, and any remaining confounding cannot be ruled out. Confirmed source-level period labels would be needed for an order-adjusted analysis.
 
-## Remaining work
+## Integrated deliverables
 
-The other participant will handle the notebook, publication plots, README, dependencies/Docker, final report, and release. Cite the source authors and clearly separate their conclusions from our exploratory calculations. Keep zero-completion rows and genuine outliers; do not filter human sessions as technical warm-ups.
+The executed notebook, publication figures, separate technical benchmark, report, and reproducibility runner are complete. See `reports/task3_report.md` and `docs/task3_checklist.md`. Source attribution is retained throughout.
