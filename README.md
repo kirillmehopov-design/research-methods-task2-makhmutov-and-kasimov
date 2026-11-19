@@ -148,6 +148,10 @@ outputs/                 Ignored temporary kernel and build files
 
 ## Contributions
 
+The Task 4 IEEE paper sources and build instructions are in [paper/](paper/README.md).
+See [the contribution handoff](docs/task4_handoff.md) and
+[defense notes](docs/task4_defense.md) for completion and presentation.
+
 The `task3-analysis` contribution adds the statistical module, tests, processed data, sensitivity checks, and domain model. The integration contribution adds the executed notebook, figures, separate runtime benchmark, report, reproducibility checks, and final packaging. Both contributions build on the Task 2 methodology and source validation. Git history records the work.
 
 ## Sources and license
