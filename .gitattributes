@@ -1,3 +1,4 @@
 * text=auto
 data/raw/*.csv -text
 data/sample/*.csv -text
+paper/library/*.bib -text
