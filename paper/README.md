@@ -11,9 +11,13 @@ pipeline diagram, analysis settings, and a 12-source cited bibliography based on
 Task 1. It adds build checks, defense notes, and a handoff for the second contributor.
 
 The second contribution completes Results and Discussion, Limitations and
-Conclusion, results sentences in the Abstract, and final four-page layout.
-See [the handoff](../docs/task4_handoff.md). The unfinished section files carry
-`TASK4_PENDING` comments. This intermediate draft is not the submission PDF.
+Conclusion, a 172-word results Abstract, the baseline table, two compact vector
+plots, and the verified four-page PDF. The final package is ready for submission.
+
+- Final PDF: [task4_paper.pdf](task4_paper.pdf)
+- Standalone source/PDF archive: [task4_submission.zip](../outputs/task4_submission.zip)
+- Verification and Zotero status: [task4_checklist.md](../docs/task4_checklist.md)
+- Standalone compilation: [SUBMISSION_README.md](SUBMISSION_README.md)
 
 ## Build and validation
 
@@ -49,20 +53,22 @@ python -m unittest discover -s tests -v
 python -m src.check_submission
 ```
 
-After the second contribution, install `pypdf` in the validation environment:
+Final verification (19 November 2026): all 20 tests and both submission checkers
+passed. The final PDF has exactly four pages; all four pages were rendered and
+visually inspected. No undefined references or overfull boxes remain. The last
+page is balanced using the standard balance package. Remaining underfull-box
+messages concern bibliography line justification; reviewed entries are readable.
+All fonts are embedded. The 12 publisher DOI links and repository link are present
+as PDF URI annotations, and internal cross-references resolve.
+
+Linux/macOS build: `sh paper/build.sh`. Official unmodified IEEEtran.cls and
+IEEEtran.bst are included for standalone compilation. Run `python paper/make_figures.py`
+from the full repository to regenerate paper-specific vector figures from the
+saved JSON (requires Matplotlib). The standard IEEE sizes and margins are unchanged.
 
 ```sh
 python -m src.check_paper --final --pdf paper/build/main.pdf
 ```
-
-Or use `./paper/build.ps1 -Final`. This requires four pages, no pending sections,
-and a compiler log beside the PDF without unresolved references or overfull boxes.
-Inspect every page visually, then copy the final PDF to `paper/task4_paper.pdf`.
-
-First-contribution verification: Tectonic 0.17.0 successfully compiled the
-two-page foundation preview; both pages were rendered and inspected. The log
-has no unresolved references or overfull boxes. The final two sections remain
-for the second contribution, so this preview does not meet final submission scope.
 
 ## Bibliography and Zotero
 
@@ -72,7 +78,11 @@ from the earlier draft. All twelve are cited. See [source verification](bibliogr
 For Zotero/Overleaf synchronization, import `references.bib` into a dedicated
 collection, preserve the keys (pin with Better BibTeX if used), then export that
 collection back to the same `.bib`. Rebuild after export and record completion
-in the handoff. Repository setup alone does not establish a live Zotero connection.
+in the checklist. Repository setup alone does not establish a live Zotero connection.
+
+Actual status: no Zotero connector or executable is available here. Import/export
+and account synchronization were not performed. The exact remaining optional
+steps are in SUBMISSION_README.md; the paper builds independently of Zotero.
 Keep author/title/year, venue, DOI, and available volume/issue/pages. Remove
 local file paths, abstracts, and duplicate DOI URLs.
 

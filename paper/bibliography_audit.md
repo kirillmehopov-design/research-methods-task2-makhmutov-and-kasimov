@@ -42,3 +42,11 @@ the source dataset is the actual baseline.
 The supplied `.bib` establishes the origin of the Task 1 references. A new Zotero
 export or live Overleaf synchronization has not been performed in this contribution.
 Complete the documented import/export workflow before claiming that integration.
+
+## Final paper completion
+
+The twelve existing keys and DOI fields are retained. Short linked Publisher
+record notes make DOI destinations clickable in IEEEtran output, which otherwise
+does not print the DOI field. No duplicate URL fields or local paths were added.
+The original Task 1 library remains byte-identical to commit 0c62ac2.
+Zotero import/export and live synchronization were unavailable and were not run.

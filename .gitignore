@@ -29,3 +29,6 @@ htmlcov/
 .Dockerfile.swp
 *.zip
 .vscode/
+
+# Final Task 4 submission archive
+!outputs/task4_submission.zip
