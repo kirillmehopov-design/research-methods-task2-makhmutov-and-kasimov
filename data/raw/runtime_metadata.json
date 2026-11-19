@@ -1,0 +1,18 @@
+{
+  "collected_at_utc": "2026-11-05T18:13:59.699367+00:00",
+  "python": "3.12.14",
+  "os": "Windows-11-10.0.26200-SP0",
+  "processor": "AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD",
+  "logical_cpus": 12,
+  "config": {
+    "warmup_runs": 20,
+    "evaluation_runs": 100,
+    "bootstrap_repetitions": 2000,
+    "random_seed": 42
+  },
+  "clock": "time.perf_counter_ns",
+  "measured_operation": "Parse preloaded CSV strings and validate participant pairs",
+  "excluded_from_timer": "File reading, source hash checks, log writes, and summary calculation",
+  "interpretation": "Local repeated timings of one fixed input; not human productivity evidence",
+  "ram_bytes": 25065820160
+}

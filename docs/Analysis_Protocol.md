@@ -21,13 +21,12 @@ The script provides unadjusted estimates and 95% intervals, not the source autho
 
 Both conditions allow Copilot. Time is recorded session time, including partially completed work; it is not always time to a fully correct solution. Completion is a task score and should not be relabeled test accuracy or security. The five-percentage-point completion guardrail is a reporting threshold chosen for this project.
 
-## Task 3 plan
+## Task 3 implementation
 
-- Add `notebooks/01_data_analysis.ipynb`, run top to bottom with saved outputs.
-- Add adjustment for task and order using the source assignment scheme; compare adjusted and unadjusted estimates. Check the assignment coding against the paper before modeling.
-- Check sensitivity to individual participants and report all planned comparisons, including weak or opposite results.
-- Export productivity comparisons, paired changes and completion summaries to vector PDF and 300-DPI PNG with units, colorblind-safe styles and uncertainty.
-- Add `src/visualize.py`, processed summaries and Results & Discussion in README.
-- Add a software-engineering domain model showing source tables, validation, pairing, analysis and reporting, with metric calculation points.
-- Keep raw CSV data as published. A JSONL export may be added for the requested repository layout, with the original source retained. Technical cold-start filtering is not applicable to human session measurements; no observations are removed as warm-up.
-- Record exact versions of any new notebook/plotting dependencies and verify a clean run before release.
+The completed notebook is `notebooks/01_data_analysis.ipynb`. It runs in a fresh kernel and retains visible outputs. `src/task3_analysis.py` adds sample SD, quartiles, participant leave-one-out checks, and equal-task-weight sensitivity. The primary estimate remains unadjusted. Order adjustment is not supported by confirmed first/second-period labels in the available CSVs; this limitation is retained rather than guessing a mapping.
+
+`src/visualize.py` exports four vector PDFs and 300-DPI PNGs. `src/report.py` generates the report from saved outputs. The C4 model in `docs/domain_model.md` marks data acquisition and metric-calculation points. Exact dependencies are pinned in `requirements.lock.txt`.
+
+A separate technical collector, `src/runtime_benchmark.py`, times parsing preloaded source text and validating pairs. It records 20 warm-up and 100 evaluation attempts per input size as JSONL. All errors count in the denominator; successful timings supply latency statistics. IQR flags retain all records. Bootstrap intervals over runtime attempts are descriptive of one local run, not independent hardware trials. Human sessions and technical attempts are never pooled.
+
+Use `python -m src.run_task3` for the full rebuild, then `python -m src.check_submission` for artifact checks.

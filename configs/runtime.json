@@ -1,0 +1,6 @@
+{
+  "warmup_runs": 20,
+  "evaluation_runs": 100,
+  "bootstrap_repetitions": 2000,
+  "random_seed": 42
+}
